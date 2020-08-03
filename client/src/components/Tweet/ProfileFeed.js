@@ -61,6 +61,8 @@ const Username = styled.div`
 const EntireDiv = styled.div`
   margin-left: 470px;
   text-align: left;
+  position: relative;
+  top: 400px;
 `;
 
 const StatWrapper = styled.div`

@@ -84,7 +84,7 @@ const TweetStyles = (props) => {
   return (
     <EntireDiv>
       <HeadWrapper>
-        <Avatar src={props.value.author.avatarSrc}></Avatar>
+        <Avatar src={props.value.author.avatarSrc} />
         <Name>
           <DisplayName>{props.value.author.displayName}</DisplayName>
           <Username>@{props.value.author.handle}</Username>
