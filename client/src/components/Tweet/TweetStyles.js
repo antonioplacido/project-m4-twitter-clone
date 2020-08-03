@@ -47,6 +47,8 @@ const Name = styled.div`
   padding: 0px 16px;
 `;
 
+const TweetMedia = styled.img``;
+
 const DisplayName = styled.div`
   font-size: 15px;
   line-height: 20px;
@@ -106,6 +108,7 @@ const TweetStyles = (props) => {
       </HeadWrapper>
       <TweetWrapper>
         <TweetContents>{props.value.status}</TweetContents>
+        <TweetMedia src={props.value.media.url} />
         <Timestamp>{date}</Timestamp>
         <Divider />
         <StatWrapper>

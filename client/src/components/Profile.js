@@ -22,16 +22,13 @@ const Profile = () => {
         setProBanner(profileTopTaker);
         setBannerStatus("BannerLoaded");
       });
-  }, []);
-
-  useEffect(() => {
     fetch(`/api/${handle}/feed`)
       .then((res) => res.json())
       .then((profileData) => {
         setProfileFeed(profileData);
         setStatus("ProfileLoaded");
       });
-  }, []);
+  }, [handle]);
 
   return (
     <>
