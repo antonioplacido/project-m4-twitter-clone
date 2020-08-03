@@ -32,7 +32,7 @@ const users = {
     avatarSrc:
       "https://pbs.twimg.com/profile_images/1203323662591504384/GwxdsfNA_400x400.jpg",
     bannerSrc:
-      "https://pbs.twimg.com/profile_banners/1168513974763171840/1578494728/1500x500",
+      "https://i.insider.com/5d7bee312e22af216006dd12?width=1100&format=jpeg&auto=webp",
     location: undefined,
     url: undefined,
     joined: "2019-09-01T18:00",
@@ -43,7 +43,6 @@ const users = {
     likeIds: [],
   },
 };
-
 const tweets = {
   // TreasuryMog
   "1209791721099411456r1": {
@@ -71,7 +70,6 @@ const tweets = {
       },
     ],
   },
-
   // Diplomog
   "1209791721099411456": {
     id: "1209791721099411456",
@@ -84,7 +82,6 @@ const tweets = {
       "If you're a 🇬🇧 diplomat abroad today, let me know where you are and what you're up to!",
     media: [],
   },
-
   "1215324598067245056r2": {
     id: "1215324598067245056r2",
     authorHandle: "diplomog",
@@ -94,7 +91,6 @@ const tweets = {
     likedBy: [],
     retweetedBy: [],
   },
-
   "1214624813723136002": {
     id: "1214624813723136002",
     authorHandle: "diplomog",
@@ -103,7 +99,6 @@ const tweets = {
     likedBy: [],
     retweetedBy: [],
     status: `Sometimes I wonder... am I playing with the ribbon or is the ribbon playing with me?
-
 Maybe a more diplomatic approach will work 🤔`,
     media: [
       {
@@ -120,7 +115,6 @@ Maybe a more diplomatic approach will work 🤔`,
     likedBy: [],
     retweetedBy: [],
     status: `Moggy Christmas to all!
-
 Special wishes to all my diplomats, far from home at this time of year, serving 🇬🇧 all over the 🌍.`,
     media: [
       {
@@ -137,9 +131,7 @@ Special wishes to all my diplomats, far from home at this time of year, serving 
     likedBy: [],
     retweetedBy: [],
     status: `2019 has a been a wonderful year, but I definitely deserve some rest!
-
-I would love to know what my 🇬🇧diplomats have been getting up to! What’s been your highlight or biggest achievement of the year?
-
+I would love to know what my 🇬🇧diplomats have been getting up to! What's been your highlight or biggest achievement of the year?
 My highlight has been coming back to work with my very own Palmy HQ 🤩`,
     media: [
       {
@@ -169,7 +161,7 @@ My highlight has been coming back to work with my very own Palmy HQ 🤩`,
       {
         type: "img",
         url:
-          "https://pbs.twimg.com/media/EN2_AttWkAE5PPA?format=jpg&name=medium",
+          "https://66.media.tumblr.com/731c4dd6409da3af646506336176aebf/tumblr_pzm9osuRQZ1qz6f9yo3_500.jpg",
       },
     ],
   },
@@ -185,7 +177,7 @@ My highlight has been coming back to work with my very own Palmy HQ 🤩`,
       {
         type: "img",
         url:
-          "https://pbs.twimg.com/media/EN2zNYXWoAEqe1u?format=jpg&name=medium",
+          "https://66.media.tumblr.com/b0a81b76ba96397f4a7bec99a096db2c/tumblr_pzm9osuRQZ1qz6f9yo1_500.jpg",
       },
     ],
   },
@@ -201,7 +193,7 @@ My highlight has been coming back to work with my very own Palmy HQ 🤩`,
       {
         type: "img",
         url:
-          "https://pbs.twimg.com/media/EN2SATMXUAAk1KW?format=jpg&name=medium",
+          "https://sadanduseless.b-cdn.net/wp-content/uploads/2019/09/military-cats7.jpg",
       },
     ],
   },
@@ -212,7 +204,7 @@ My highlight has been coming back to work with my very own Palmy HQ 🤩`,
     sortedTimestamp: "2019-12-29T22:19:00+00:00",
     likedBy: [],
     retweetedBy: [],
-    status: `"The principle of giant military cats deterrence states that a country’s possession of giant military cats discourages other countries from using giant military cats".`,
+    status: `"The principle of giant military cats deterrence states that a country's possession of giant military cats discourages other countries from using giant military cats".`,
     media: [],
   },
   "1215277385404309504": {
@@ -230,7 +222,7 @@ https://morrisanimalrefuge.org/adopt/storm `,
       {
         type: "img",
         url:
-          "https://pbs.twimg.com/media/EN2IQ50W4AMz3VY?format=jpg&name=medium",
+          "https://abyaday.files.wordpress.com/2020/01/rorygrabcopter-e1579894749279.jpg?w=640",
       },
     ],
   },
@@ -246,7 +238,7 @@ https://morrisanimalrefuge.org/adopt/storm `,
       {
         type: "img",
         url:
-          "https://pbs.twimg.com/media/EOBBt4RWsAE9dBn?format=jpg&name=medium",
+          "https://cf.broadsheet.ie/wp-content/uploads/2019/09/military-cats16.jpg",
       },
     ],
   },
@@ -263,7 +255,7 @@ by Lady Butler / 1881`,
       {
         type: "img",
         url:
-          "https://pbs.twimg.com/media/EOAWiDjX0AA8JR-?format=jpg&name=large",
+          "https://sadanduseless.b-cdn.net/wp-content/uploads/2019/09/military-cats2.jpg",
       },
     ],
   },
@@ -279,7 +271,7 @@ by Lady Butler / 1881`,
       {
         type: "img",
         url:
-          "https://pbs.twimg.com/media/EOARYNrX4AE1qTN?format=jpg&name=medium",
+          "https://www.eatliver.com/wp-content/uploads/2019/09/battle-cats1.jpg",
       },
     ],
   },
@@ -295,7 +287,7 @@ by Lady Butler / 1881`,
       {
         type: "img",
         url:
-          "https://pbs.twimg.com/media/EN_vOBvW4AAnbML?format=jpg&name=medium",
+          "https://i.insider.com/5d7bebd12e22af21cf73c283?width=750&format=jpeg&auto=webp",
       },
     ],
   },

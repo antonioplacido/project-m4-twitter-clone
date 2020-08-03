@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import moment from "moment";
+import { useHistory } from "react-router-dom";
 
 const TweetWrapper = styled.div`
   background: white;
@@ -80,13 +81,26 @@ const Retweets = styled.div`
 const Likes = styled.div``;
 
 const TweetStyles = (props) => {
+  const history = useHistory();
+
+  function navigateTweet(e) {
+    e.stopPropagation();
+    history.push(`/tweet/${props.value.id}`);
+  }
+
+  function navigateProfile(e) {
+    e.stopPropagation();
+    history.push(`/${props.value.author.handle}`);
+  }
   const date = moment(props.value.timestamp).format("h:mm a ∙ MMM Do, YYYY");
   return (
-    <EntireDiv>
+    <EntireDiv tabIndex="0" onClick={navigateTweet}>
       <HeadWrapper>
         <Avatar src={props.value.author.avatarSrc} />
-        <Name>
-          <DisplayName>{props.value.author.displayName}</DisplayName>
+        <Name onClick={navigateProfile}>
+          <DisplayName tabIndex="0">
+            {props.value.author.displayName}
+          </DisplayName>
           <Username>@{props.value.author.handle}</Username>
         </Name>
       </HeadWrapper>

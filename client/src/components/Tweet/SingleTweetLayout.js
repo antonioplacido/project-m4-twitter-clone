@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import moment from "moment";
+import { useHistory } from "react-router-dom";
 
 const TweetWrapper = styled.div`
   background: white;
@@ -83,12 +84,25 @@ const SingleTweetLayout = (props) => {
   const date = moment(props.value.tweet.author.timestamp).format(
     "h:mm a ∙ MMM Do, YYYY"
   );
+  const history = useHistory();
+
+  function navigateTweet(e) {
+    e.stopPropagation();
+    history.push(`/tweet/${props.value.id}`);
+  }
+
+  function navigateProfile(e) {
+    e.stopPropagation();
+    history.push(`/${props.value.tweet.author.handle}`);
+  }
   return (
-    <EntireDiv>
+    <EntireDiv tabIndex="0">
       <HeadWrapper>
         <Avatar src={props.value.tweet.author.avatarSrc} />
-        <Name>
-          <DisplayName>{props.value.tweet.author.displayName}</DisplayName>
+        <Name onClick={navigateProfile}>
+          <DisplayName tabIndex="0">
+            {props.value.tweet.author.displayName}
+          </DisplayName>
           <Username>@{props.value.tweet.author.handle}</Username>
         </Name>
       </HeadWrapper>
