@@ -34,9 +34,6 @@ const Handle = styled.span`
   display: flex;
   padding-top: 15px;
 `;
-function sneakyAlert() {
-  alert("T'was a trick, haven't gotten around to doing this part");
-}
 
 const ProfilePicture = styled.img`
   width: 15vh;

@@ -1,8 +1,38 @@
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useParams, BrowserRouter as Router, Route } from "react-router-dom";
+import TweetProvider from "../components/Tweet/TweetContext";
+import styled from "styled-components";
+import SingleTweetLayout from "./Tweet/SingleTweetLayout";
 
 const TweetDetails = () => {
-  return <div>TweetDetails</div>;
+  const [tweetDetails, setTweetDetails] = React.useState(null);
+  const [status, setStatus] = React.useState("Loading tweet...");
+
+  console.log(tweetDetails);
+  console.log(status);
+
+  const { tweetId } = useParams();
+
+  useEffect(() => {
+    fetch(`/api/tweet/${tweetId}`)
+      .then((res) => res.json())
+      .then((individualTweet) => {
+        setTweetDetails(individualTweet);
+        setStatus("Tweet Loaded");
+      });
+  }, []);
+
+  return (
+    <>
+      {status === "Tweet Loaded" ? (
+        <>
+          <SingleTweetLayout value={tweetDetails} />
+        </>
+      ) : (
+        <div>{status}</div>
+      )}
+    </>
+  );
 };
 
 export default TweetDetails;
