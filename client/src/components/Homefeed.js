@@ -13,7 +13,7 @@ const HomeFeedPage = styled.div`
 
 const Homefeed = () => {
   const [tweetFeed, setTweetFeed] = React.useState(null);
-  const [status, setStatus] = React.useState("loading");
+  const [status, setStatus] = React.useState("Loading Homepage please wait...");
   console.log(status);
   console.log(tweetFeed);
 

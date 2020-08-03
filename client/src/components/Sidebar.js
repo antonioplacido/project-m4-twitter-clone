@@ -20,7 +20,7 @@ const Sidebar = () => {
           </NavLink>
         </div>
         <div>
-          <NavLink to="/:profileId">
+          <NavLink to="/treasurymog">
             <Icon icon={UserIcon} />
             <span>Profile</span>
           </NavLink>
