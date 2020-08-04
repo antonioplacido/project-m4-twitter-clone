@@ -28,6 +28,7 @@ const Timestamp = styled.div`
 const Divider = styled.div`
   height: 1px;
   background: rgb(230, 236, 240);
+  width: 65vh;
 `;
 
 const HeadWrapper = styled.header`
@@ -60,12 +61,7 @@ const Username = styled.div`
   color: rgb(101, 119, 134);
 `;
 
-const EntireDiv = styled.div`
-  margin-left: 470px;
-  text-align: left;
-  position: relative;
-  top: 400px;
-`;
+const EntireDiv = styled.div``;
 
 const StatWrapper = styled.div`
   div {
@@ -83,7 +79,12 @@ const Retweets = styled.div`
 `;
 const Likes = styled.div``;
 
-const ClickyDiv = styled.div``;
+const TheDiv = styled.div`
+  margin-left: 470px;
+  text-align: left;
+  position: relative;
+  top: 400px;
+`;
 
 const ProfileFeed = (props) => {
   const date = moment(props.value.timestamp).format("h:mm a ∙ MMM Do, YYYY");
@@ -99,8 +100,8 @@ const ProfileFeed = (props) => {
     history.push(`/${props.value.author.handle}`);
   }
   return (
-    <EntireDiv tabIndex="0" onClick={navigateTweet}>
-      <ClickyDiv>
+    <TheDiv>
+      <EntireDiv tabIndex="0" onClick={navigateTweet}>
         <HeadWrapper>
           <Avatar src={props.value.author.avatarSrc}></Avatar>
           <Name onClick={navigateProfile}>
@@ -110,24 +111,15 @@ const ProfileFeed = (props) => {
             <Username>@{props.value.author.handle}</Username>
           </Name>
         </HeadWrapper>
-      </ClickyDiv>
-      <TweetWrapper>
-        <TweetContents>{props.value.status}</TweetContents>
-        <Timestamp>{date}</Timestamp>
-        <Divider />
-        <StatWrapper>
-          <Retweets>
-            <b>{props.value.numRetweets}</b> Retweets
-          </Retweets>
-          <Likes>
-            <b>{props.value.numLikes}</b> Likes
-          </Likes>
-        </StatWrapper>
-        <Divider />
-        <ActionBar value={props}></ActionBar>
-        <Divider />
-      </TweetWrapper>
-    </EntireDiv>
+        <TweetWrapper>
+          <TweetContents>{props.value.status}</TweetContents>
+          <Timestamp>{date}</Timestamp>
+        </TweetWrapper>
+      </EntireDiv>
+      <Divider />
+      <ActionBar value={props}></ActionBar>
+      <Divider />
+    </TheDiv>
   );
 };
 export default ProfileFeed;

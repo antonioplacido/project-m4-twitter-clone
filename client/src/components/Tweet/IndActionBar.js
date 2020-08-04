@@ -6,11 +6,11 @@ import { repeat } from "react-icons-kit/feather/repeat";
 import { heart } from "react-icons-kit/feather/heart";
 import { upload } from "react-icons-kit/feather/upload";
 
-const ActionBar = (props) => {
+const IndActionBar = (props) => {
   console.log(props);
-  const [likes, setLikes] = useState(props.value.value.numLikes);
+  const [likes, setLikes] = useState(props.value.value.tweet.numLikes);
   const [isLiked, setIsLiked] = useState(false);
-  const [retweets, setRetweets] = useState(props.value.value.numRetweets);
+  const [retweets, setRetweets] = useState(props.value.value.tweet.numRetweets);
   const [isRetweeted, setIsRetweeted] = useState(false);
   const handleToggleLiked = () => {
     const fetchdata = {
@@ -19,10 +19,10 @@ const ActionBar = (props) => {
       body: JSON.stringify({ like: !isLiked }),
     };
     isLiked
-      ? fetch(`/api/tweet/${props.value.value.id}/like`, fetchdata)
+      ? fetch(`/api/tweet/${props.value.value.tweet.id}/like`, fetchdata)
           .then((response) => response.json())
           .then(setLikes(likes - 1))
-      : fetch(`/api/tweet/${props.value.value.id}/like`, fetchdata)
+      : fetch(`/api/tweet/${props.value.value.tweet.id}/like`, fetchdata)
           .then((response) => response.json())
           .then(setLikes(likes + 1));
     setIsLiked(!isLiked);
@@ -99,4 +99,4 @@ const Divider = styled.div`
   width: 65vh;
 `;
 
-export default ActionBar;
+export default IndActionBar;

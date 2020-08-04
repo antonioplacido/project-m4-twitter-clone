@@ -6,7 +6,6 @@ import { useHistory } from "react-router-dom";
 
 const TweetWrapper = styled.div`
   background: white;
-  width: 580px;
   padding-top: 16px;
   padding-bottom: 16px;
   text-align: left;
@@ -16,6 +15,7 @@ const TweetWrapper = styled.div`
 
 const TweetContents = styled.div`
   font-size: 22px;
+  width: 570px;
 `;
 
 const Timestamp = styled.div`
@@ -27,6 +27,7 @@ const Timestamp = styled.div`
 
 const Divider = styled.div`
   height: 1px;
+  width: 65vh;
   background: rgb(230, 236, 240);
 `;
 
@@ -65,10 +66,7 @@ const Username = styled.div`
   color: rgb(101, 119, 134);
 `;
 
-const EntireDiv = styled.div`
-  margin-left: 470px;
-  text-align: left;
-`;
+const EntireDiv = styled.div``;
 
 const StatWrapper = styled.div`
   div {
@@ -86,6 +84,11 @@ const Retweets = styled.div`
 `;
 const Likes = styled.div``;
 
+const TheDiv = styled.div`
+  margin-left: 470px;
+  text-align: left;
+`;
+
 const TweetStyles = (props) => {
   const history = useHistory();
 
@@ -100,34 +103,27 @@ const TweetStyles = (props) => {
   }
   const date = moment(props.value.timestamp).format("h:mm a ∙ MMM Do, YYYY");
   return (
-    <EntireDiv>
-      <HeadWrapper tabIndex="0" onClick={navigateTweet}>
-        <Avatar src={props.value.author.avatarSrc} />
-        <Name onClick={navigateProfile}>
-          <DisplayName tabIndex="0">
-            {props.value.author.displayName}
-          </DisplayName>
-          <Username>@{props.value.author.handle}</Username>
-        </Name>
-      </HeadWrapper>
-      <TweetWrapper>
-        <TweetContents>{props.value.status}</TweetContents>
-        <TweetMedia src={props.value.media.url} />
-        <Timestamp>{date}</Timestamp>
-        <Divider />
-        <StatWrapper>
-          <Retweets>
-            <b>{props.value.numRetweets}</b> Retweets
-          </Retweets>
-          <Likes>
-            <b>{props.value.numLikes}</b> Likes
-          </Likes>
-        </StatWrapper>
-        <Divider />
-        <ActionBar value={props}></ActionBar>
-        <Divider />
-      </TweetWrapper>
-    </EntireDiv>
+    <TheDiv>
+      <EntireDiv tabIndex="0" onClick={navigateTweet}>
+        <HeadWrapper>
+          <Avatar src={props.value.author.avatarSrc} />
+          <Name onClick={navigateProfile}>
+            <DisplayName tabIndex="0">
+              {props.value.author.displayName}
+            </DisplayName>
+            <Username>@{props.value.author.handle}</Username>
+          </Name>
+        </HeadWrapper>
+        <TweetWrapper>
+          <TweetContents>{props.value.status}</TweetContents>
+          <TweetMedia src={props.value.media.url} />
+          <Timestamp>{date}</Timestamp>
+        </TweetWrapper>
+      </EntireDiv>
+      <Divider />
+      <ActionBar value={props}></ActionBar>
+      <Divider />
+    </TheDiv>
   );
 };
 

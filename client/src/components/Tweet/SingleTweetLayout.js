@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import moment from "moment";
 import { useHistory } from "react-router-dom";
-import ActionBar from "./ActionBar";
+import IndActionBar from "./IndActionBar";
 
 const TweetWrapper = styled.div`
   background: white;
@@ -120,7 +120,7 @@ const SingleTweetLayout = (props) => {
           </Likes>
         </StatWrapper>
         <Divider />
-        <ActionBar value={props}></ActionBar>
+        <IndActionBar value={props} />
         <Divider />
       </TweetWrapper>
     </EntireDiv>
