@@ -61,6 +61,7 @@ const IndActionBar = (props) => {
 const NumStats = styled.div`
   margin-right: 20px;
   padding-bottom: 15px;
+  text-align: left;
 `;
 const DivDiv = styled.div`
   justify-content: space-evenly;

@@ -6,7 +6,6 @@ import IndActionBar from "./IndActionBar";
 
 const TweetWrapper = styled.div`
   background: white;
-  width: 580px;
   padding-top: 16px;
   padding-bottom: 16px;
   text-align: left;
@@ -16,6 +15,7 @@ const TweetWrapper = styled.div`
 
 const TweetContents = styled.div`
   font-size: 22px;
+  width: 570px;
 `;
 
 const Timestamp = styled.div`
@@ -27,6 +27,7 @@ const Timestamp = styled.div`
 
 const Divider = styled.div`
   height: 1px;
+  width: 65vh;
   background: rgb(230, 236, 240);
 `;
 
@@ -48,6 +49,11 @@ const Name = styled.div`
   padding: 0px 16px;
 `;
 
+const TweetMedia = styled.img`
+  height: 300px;
+  width: 570px;
+`;
+
 const DisplayName = styled.div`
   font-size: 15px;
   line-height: 20px;
@@ -60,10 +66,7 @@ const Username = styled.div`
   color: rgb(101, 119, 134);
 `;
 
-const EntireDiv = styled.div`
-  margin-left: 470px;
-  text-align: left;
-`;
+const EntireDiv = styled.div``;
 
 const StatWrapper = styled.div`
   div {
@@ -81,11 +84,19 @@ const Retweets = styled.div`
 `;
 const Likes = styled.div``;
 
+const TheDiv = styled.div`
+  margin-left: 470px;
+  text-align: left;
+`;
+
 const SingleTweetLayout = (props) => {
   const date = moment(props.value.tweet.author.timestamp).format(
     "h:mm a ∙ MMM Do, YYYY"
   );
   const history = useHistory();
+
+  const picture = props.value.tweet.media;
+  const catPhotos = picture.map((ele) => ele.url);
 
   function navigateTweet(e) {
     e.stopPropagation();
@@ -97,33 +108,27 @@ const SingleTweetLayout = (props) => {
     history.push(`/${props.value.tweet.author.handle}`);
   }
   return (
-    <EntireDiv>
-      <HeadWrapper tabIndex="0" onClick={navigateTweet}>
-        <Avatar src={props.value.tweet.author.avatarSrc} />
-        <Name onClick={navigateProfile}>
-          <DisplayName tabIndex="0">
-            {props.value.tweet.author.displayName}
-          </DisplayName>
-          <Username>@{props.value.tweet.author.handle}</Username>
-        </Name>
-      </HeadWrapper>
-      <TweetWrapper>
-        <TweetContents>{props.value.tweet.status}</TweetContents>
-        <Timestamp>{date}</Timestamp>
-        <Divider />
-        <StatWrapper>
-          <Retweets>
-            <b>{props.value.tweet.numRetweets}</b> Retweets
-          </Retweets>
-          <Likes>
-            <b>{props.value.tweet.numLikes}</b> Likes
-          </Likes>
-        </StatWrapper>
-        <Divider />
-        <IndActionBar value={props} />
-        <Divider />
-      </TweetWrapper>
-    </EntireDiv>
+    <TheDiv>
+      <EntireDiv>
+        <HeadWrapper tabIndex="0" onClick={navigateTweet}>
+          <Avatar src={props.value.tweet.author.avatarSrc} />
+          <Name onClick={navigateProfile}>
+            <DisplayName tabIndex="0">
+              {props.value.tweet.author.displayName}
+            </DisplayName>
+            <Username>@{props.value.tweet.author.handle}</Username>
+          </Name>
+        </HeadWrapper>
+        <TweetWrapper>
+          <TweetContents>{props.value.tweet.status}</TweetContents>
+          <TweetMedia src={catPhotos} />
+          <Timestamp>{date}</Timestamp>
+        </TweetWrapper>
+      </EntireDiv>
+      <Divider />
+      <IndActionBar value={props} />
+      <Divider />
+    </TheDiv>
   );
 };
 
