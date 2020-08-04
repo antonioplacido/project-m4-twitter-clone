@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import moment from "moment";
 import { useHistory } from "react-router-dom";
+import ActionBar from "./ActionBar";
 
 const TweetWrapper = styled.div`
   background: white;
@@ -96,8 +97,8 @@ const SingleTweetLayout = (props) => {
     history.push(`/${props.value.tweet.author.handle}`);
   }
   return (
-    <EntireDiv tabIndex="0">
-      <HeadWrapper>
+    <EntireDiv>
+      <HeadWrapper tabIndex="0" onClick={navigateTweet}>
         <Avatar src={props.value.tweet.author.avatarSrc} />
         <Name onClick={navigateProfile}>
           <DisplayName tabIndex="0">
@@ -119,7 +120,7 @@ const SingleTweetLayout = (props) => {
           </Likes>
         </StatWrapper>
         <Divider />
-        <div>Action Bar goes here</div>
+        <ActionBar value={props}></ActionBar>
         <Divider />
       </TweetWrapper>
     </EntireDiv>

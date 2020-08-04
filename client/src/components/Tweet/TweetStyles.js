@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import moment from "moment";
+import ActionBar from "./ActionBar";
 import { useHistory } from "react-router-dom";
 
 const TweetWrapper = styled.div`
@@ -47,7 +48,10 @@ const Name = styled.div`
   padding: 0px 16px;
 `;
 
-const TweetMedia = styled.img``;
+const TweetMedia = styled.img`
+  height: 300px;
+  width: 570px;
+`;
 
 const DisplayName = styled.div`
   font-size: 15px;
@@ -96,8 +100,8 @@ const TweetStyles = (props) => {
   }
   const date = moment(props.value.timestamp).format("h:mm a ∙ MMM Do, YYYY");
   return (
-    <EntireDiv tabIndex="0" onClick={navigateTweet}>
-      <HeadWrapper>
+    <EntireDiv>
+      <HeadWrapper tabIndex="0" onClick={navigateTweet}>
         <Avatar src={props.value.author.avatarSrc} />
         <Name onClick={navigateProfile}>
           <DisplayName tabIndex="0">
@@ -120,7 +124,7 @@ const TweetStyles = (props) => {
           </Likes>
         </StatWrapper>
         <Divider />
-        <div>Action Bar goes here</div>
+        <ActionBar value={props}></ActionBar>
         <Divider />
       </TweetWrapper>
     </EntireDiv>

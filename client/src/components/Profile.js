@@ -1,6 +1,4 @@
 import React, { useEffect } from "react";
-import TweetProvider from "../components/Tweet/TweetContext";
-import styled from "styled-components";
 import ProfileFeed from "./Tweet/ProfileFeed";
 import TopProfile from "./TopProfile";
 import { useParams, BrowserRouter as Router, Route } from "react-router-dom";

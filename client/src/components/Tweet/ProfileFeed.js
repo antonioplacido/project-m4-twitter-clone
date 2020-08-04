@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import moment from "moment";
 import { useHistory } from "react-router-dom";
+import ActionBar from "./ActionBar";
 
 const TweetWrapper = styled.div`
   background: white;
@@ -82,9 +83,12 @@ const Retweets = styled.div`
 `;
 const Likes = styled.div``;
 
+const ClickyDiv = styled.div``;
+
 const ProfileFeed = (props) => {
   const date = moment(props.value.timestamp).format("h:mm a ∙ MMM Do, YYYY");
   const history = useHistory();
+
   function navigateTweet(e) {
     e.stopPropagation();
     history.push(`/tweet/${props.value.id}`);
@@ -96,15 +100,17 @@ const ProfileFeed = (props) => {
   }
   return (
     <EntireDiv tabIndex="0" onClick={navigateTweet}>
-      <HeadWrapper>
-        <Avatar src={props.value.author.avatarSrc}></Avatar>
-        <Name onClick={navigateProfile}>
-          <DisplayName tabIndex="0">
-            {props.value.author.displayName}
-          </DisplayName>
-          <Username>@{props.value.author.handle}</Username>
-        </Name>
-      </HeadWrapper>
+      <ClickyDiv>
+        <HeadWrapper>
+          <Avatar src={props.value.author.avatarSrc}></Avatar>
+          <Name onClick={navigateProfile}>
+            <DisplayName tabIndex="0">
+              {props.value.author.displayName}
+            </DisplayName>
+            <Username>@{props.value.author.handle}</Username>
+          </Name>
+        </HeadWrapper>
+      </ClickyDiv>
       <TweetWrapper>
         <TweetContents>{props.value.status}</TweetContents>
         <Timestamp>{date}</Timestamp>
@@ -118,7 +124,7 @@ const ProfileFeed = (props) => {
           </Likes>
         </StatWrapper>
         <Divider />
-        <div>Action Bar goes here</div>
+        <ActionBar value={props}></ActionBar>
         <Divider />
       </TweetWrapper>
     </EntireDiv>
