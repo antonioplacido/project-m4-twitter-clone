@@ -101,6 +101,10 @@ const TweetStyles = (props) => {
     e.stopPropagation();
     history.push(`/${props.value.author.handle}`);
   }
+
+  const picture = props.value.media;
+  const catPhotos = picture.map((ele) => ele.url);
+
   const date = moment(props.value.timestamp).format("h:mm a ∙ MMM Do, YYYY");
   return (
     <TheDiv>
@@ -116,7 +120,7 @@ const TweetStyles = (props) => {
         </HeadWrapper>
         <TweetWrapper>
           <TweetContents>{props.value.status}</TweetContents>
-          <TweetMedia src={props.value.media.url} />
+          <TweetMedia src={catPhotos} />
           <Timestamp>{date}</Timestamp>
         </TweetWrapper>
       </EntireDiv>

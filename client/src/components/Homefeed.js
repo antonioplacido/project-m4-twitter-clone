@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import TweetProvider from "../components/Tweet/TweetContext";
+import CreateTweet from "./CreateTweet";
 import styled from "styled-components";
 import TweetStyles from "./Tweet/TweetStyles";
 
@@ -29,6 +29,10 @@ const Homefeed = () => {
     <>
       {status === "Feed" ? (
         <>
+          <CreateTweet
+            tweetFeed={tweetFeed}
+            setTweetFeed={setTweetFeed}
+          ></CreateTweet>
           {tweetFeed.tweetIds.map((Feed) => {
             let Tweet = tweetFeed.tweetsById[Feed];
             console.log(Tweet);
