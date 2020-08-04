@@ -120,7 +120,7 @@ const TweetStyles = (props) => {
         </HeadWrapper>
         <TweetWrapper>
           <TweetContents>{props.value.status}</TweetContents>
-          <TweetMedia src={catPhotos} />
+          {catPhotos.length > 0 && <TweetMedia src={catPhotos} />}
           <Timestamp>{date}</Timestamp>
         </TweetWrapper>
       </EntireDiv>

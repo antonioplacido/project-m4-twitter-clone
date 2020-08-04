@@ -97,6 +97,7 @@ const SingleTweetLayout = (props) => {
 
   const picture = props.value.tweet.media;
   const catPhotos = picture.map((ele) => ele.url);
+  console.log(catPhotos);
 
   function navigateTweet(e) {
     e.stopPropagation();
@@ -121,7 +122,7 @@ const SingleTweetLayout = (props) => {
         </HeadWrapper>
         <TweetWrapper>
           <TweetContents>{props.value.tweet.status}</TweetContents>
-          <TweetMedia src={catPhotos} />
+          {catPhotos.length > 0 && <TweetMedia src={catPhotos} />}{" "}
           <Timestamp>{date}</Timestamp>
         </TweetWrapper>
       </EntireDiv>

@@ -15,7 +15,7 @@ const CreateTweet = ({ setTweetFeed, tweetFeed }) => {
       .then((res) => res.json())
       .then((data) => {
         fetch("/api/me/home-feed")
-          .then((res) => res.JSON())
+          .then((res) => res.json())
           .then((data) => {
             setTweetFeed(data);
           });
