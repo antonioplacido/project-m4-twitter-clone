@@ -14,6 +14,7 @@ import Profile from "./components/Profile";
 import GlobalStyles from "./components/GlobalStyles";
 import Sidebar from "./components/Sidebar";
 import styled from "styled-components";
+import BombsAway from "./BombsAway";
 
 const App = () => {
   return (
@@ -36,6 +37,9 @@ const App = () => {
           </Route>
           <Route exact path="/:handle">
             <Profile />
+          </Route>
+          <Route exact path="/error/404">
+            <BombsAway />
           </Route>
         </Switch>
       </Router>

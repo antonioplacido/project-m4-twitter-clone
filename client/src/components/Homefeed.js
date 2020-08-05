@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import CreateTweet from "./CreateTweet";
 import styled, { keyframes } from "styled-components";
 import TweetStyles from "./Tweet/TweetStyles";
@@ -39,7 +38,8 @@ const Homefeed = () => {
       .then((data) => {
         setTweetFeed(data);
         setStatus("Feed");
-      });
+      })
+      .catch((error) => window.location.replace("/error/404"));
   }, []);
   return (
     <>
@@ -56,7 +56,7 @@ const Homefeed = () => {
           })}
         </>
       ) : (
-        <LoadingWrapper src="https://i.imgur.com/kDDFvUp.png" class="rotate" />
+        <LoadingWrapper src="https://i.imgur.com/kDDFvUp.png" />
       )}
     </>
   );

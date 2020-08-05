@@ -1,6 +1,22 @@
 import React, { useEffect } from "react";
 import { useParams, BrowserRouter as Router, Route } from "react-router-dom";
 import SingleTweetLayout from "./Tweet/SingleTweetLayout";
+import styled, { keyframes } from "styled-components";
+
+const rotate = keyframes`
+from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+`;
+
+const LoadingWrapper = styled.img`
+  animation: ${rotate} 2s infinite linear;
+  width: 100;
+  height: 100;
+`;
 
 const TweetDetails = () => {
   const [tweetDetails, setTweetDetails] = React.useState(null);
@@ -17,7 +33,8 @@ const TweetDetails = () => {
       .then((individualTweet) => {
         setTweetDetails(individualTweet);
         setStatus("Tweet Loaded");
-      });
+      })
+      .catch((error) => window.location.replace("/error/404"));
   }, []);
 
   return (
@@ -27,7 +44,7 @@ const TweetDetails = () => {
           <SingleTweetLayout value={tweetDetails} />
         </>
       ) : (
-        <div>{status}</div>
+        <LoadingWrapper src="https://i.imgur.com/kDDFvUp.png" class="rotate" />
       )}
     </>
   );

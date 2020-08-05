@@ -2,6 +2,22 @@ import React, { useEffect } from "react";
 import ProfileFeed from "./Tweet/ProfileFeed";
 import TopProfile from "./TopProfile";
 import { useParams, BrowserRouter as Router, Route } from "react-router-dom";
+import styled, { keyframes } from "styled-components";
+
+const rotate = keyframes`
+from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+`;
+
+const LoadingWrapper = styled.img`
+  animation: ${rotate} 2s infinite linear;
+  width: 100;
+  height: 100;
+`;
 
 const Profile = () => {
   const [proBanner, setProBanner] = React.useState(null);
@@ -39,9 +55,7 @@ const Profile = () => {
           })}
         </>
       ) : (
-        <div>
-          {bannerStatus},{status}
-        </div>
+        <LoadingWrapper src="https://i.imgur.com/kDDFvUp.png" />
       )}
     </>
   );
