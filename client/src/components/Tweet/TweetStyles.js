@@ -3,6 +3,7 @@ import styled from "styled-components";
 import moment from "moment";
 import ActionBar from "./ActionBar";
 import { useHistory } from "react-router-dom";
+import { Icon } from "react-icons-kit";
 
 const TweetWrapper = styled.div`
   background: white;
